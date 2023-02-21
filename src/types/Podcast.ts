@@ -1,16 +1,25 @@
 export interface Podcast {
-  name: ImName;
-  image: ImImage[];
+  [PodcastType.name]: ImName;
+  [PodcastType.image]: ImImage[];
   summary: Summary;
-  price: ImPrice;
-  contentType: ImContentType;
+  [PodcastType.price]: ImPrice;
+  [PodcastType.contentType]: ImContentType;
   rights: Rights;
   title: Title;
   link: Link;
   id: Id;
-  artist: ImArtist;
+  [PodcastType.artist]: ImArtist;
   category: Category;
-  releaseDate: ImReleaseDate;
+  [PodcastType.releaseDate]: ImReleaseDate;
+}
+
+export enum PodcastType {
+  artist = "im:artist",
+  contentType = "im:contentType",
+  image = "im:image",
+  name = "im:name",
+  price = "im:price",
+  releaseDate = "im:releaseDate",
 }
 
 export interface Name {

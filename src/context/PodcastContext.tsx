@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import { getPodcasts } from "../services";
-import { Podcast, PodcastContextType } from "../types";
+import { Podcast, PodcastContextType, PodcastType } from "../types";
 
 export const PodcastsContext = createContext<PodcastContextType | null>(null);
 
@@ -20,30 +20,30 @@ const INITIAL_STATE: Podcast[] = [
       },
       label: "",
     },
-    artist: {
+    [PodcastType.artist]: {
       attributes: {
         href: "",
       },
       label: "",
     },
-    contentType: {
+    [PodcastType.contentType]: {
       attributes: {
         label: "",
         term: "",
       },
     },
-    image: [],
-    name: {
+    [PodcastType.image]: [],
+    [PodcastType.name]: {
       label: "",
     },
-    price: {
+    [PodcastType.price]: {
       attributes: {
         amount: "",
         currency: "",
       },
       label: "",
     },
-    releaseDate: {
+    [PodcastType.releaseDate]: {
       attributes: {
         label: "",
       },

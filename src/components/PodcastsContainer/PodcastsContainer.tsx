@@ -8,6 +8,7 @@ export default function PodcastsContainer() {
     PodcastsContext
   ) as PodcastContextType;
   console.log(podcasts);
+
   return (
     <div className="grid grid-cols-5 gap-4">
       {!loading &&
