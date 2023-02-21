@@ -1,9 +1,25 @@
-import "./App.css";
+import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { Landing, PodcastChapterDetails, PodcastDetails } from "./pages";
 
 function App() {
   return (
-    <div className="text-3xl font-bold underline">
-      <h1>Hello word</h1>
+    <div className="lg:container lg:mx-auto">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Landing />}
+          />
+          <Route
+            path="/details"
+            element={<PodcastDetails />}
+          />
+          <Route
+            path="/chapter"
+            element={<PodcastChapterDetails />}
+          />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
