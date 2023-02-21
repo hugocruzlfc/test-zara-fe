@@ -13,9 +13,6 @@ export default function Search({ setSearch }: Props) {
           placeholder="Name or author..."
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded ml-2">
-          Search
-        </button>
       </div>
     </form>
   );

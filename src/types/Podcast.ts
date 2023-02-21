@@ -20,6 +20,7 @@ export enum PodcastType {
   name = "im:name",
   price = "im:price",
   releaseDate = "im:releaseDate",
+  id = "im:id",
 }
 
 export interface Name {
@@ -90,7 +91,7 @@ export interface Link {
 }
 
 export interface Attributes5 {
-  id: string;
+  [PodcastType.id]: string;
 }
 
 export interface Id {

@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "./components";
 import { Landing, PodcastChapterDetails, PodcastDetails } from "./pages";
 
@@ -13,7 +13,7 @@ function App() {
             element={<Landing />}
           />
           <Route
-            path="/details"
+            path="/podcast/:id"
             element={<PodcastDetails />}
           />
           <Route
