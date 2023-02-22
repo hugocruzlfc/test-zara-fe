@@ -1,3 +1,4 @@
+import { Moment } from "moment/moment";
 export interface PodcastDetails {
   wrapperType: string;
   kind: string;
@@ -17,7 +18,7 @@ export interface PodcastDetails {
   collectionPrice: number;
   trackPrice: number;
   collectionHdPrice: number;
-  releaseDate: string;
+  releaseDate: Moment;
   collectionExplicitness: string;
   trackExplicitness: string;
   trackCount: number;

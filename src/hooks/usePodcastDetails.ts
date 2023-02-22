@@ -15,10 +15,12 @@ export default function usePodcastDetails({ podcastId }: Props) {
   useEffect(() => {
     setDetailsLoading(true);
     if (podcastId) {
-      getPodcastDetails(podcastId).then((data) => {
-        setCurrentPodcast(data.results[0]);
-        setDetailsLoading(false);
-      });
+      getPodcastDetails(podcastId)
+        .then((data) => {
+          setCurrentPodcast(data.results[0]);
+          setDetailsLoading(false);
+        })
+        .catch((error) => console.log(error.message));
     }
   }, []);
 

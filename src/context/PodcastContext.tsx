@@ -22,7 +22,7 @@ const INITIAL_STATE: Podcast[] = [
     },
     id: {
       attributes: {
-        id: "",
+        [PodcastType.id]: "",
       },
       label: "",
     },
@@ -89,11 +89,13 @@ export const PodcastContextProvider = ({ children }: Props) => {
   useEffect(() => {
     setLoading(true);
     if (podcastsStorage.length === 0) {
-      getPodcasts().then((response) => {
-        setLoading(false);
-        setPodcasts(response.feed.entry);
-        setPodcastsStorage(response.feed.entry);
-      });
+      getPodcasts()
+        .then((response) => {
+          setLoading(false);
+          setPodcasts(response.feed.entry);
+          setPodcastsStorage(response.feed.entry);
+        })
+        .catch((error) => console.log(error.message));
     } else {
       setPodcasts(podcastsStorage);
       setLoading(false);
