@@ -1,3 +1,3 @@
+export * from "./ChapterDetails";
+export * from "./Details";
 export * from "./Landing";
-export * from "./PodcastChapterDetails";
-export * from "./PodcastDetails";

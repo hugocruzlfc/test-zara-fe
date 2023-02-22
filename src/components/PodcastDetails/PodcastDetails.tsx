@@ -9,7 +9,6 @@ export default function PodcastDetails() {
     podcastId: podcastId.id,
   });
 
-  console.log(currentPodcast);
   return (
     <div>
       {detailsLoading ? (
@@ -87,7 +86,7 @@ export default function PodcastDetails() {
                   <br />
 
                   <Link
-                    to="/chapter"
+                    to={`/podcast/${podcastId.id}/episode/${currentPodcast?.collectionId}`}
                     className="font-medium text-blue-600 dark:text-blue-500 hover:underline flex gap-2 ml-5"
                     style={{
                       cursor: "pointer",

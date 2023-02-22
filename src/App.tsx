@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Header } from "./components";
-import { Landing, PodcastChapterDetails, PodcastDetails } from "./pages";
+import { Landing, ChapterDetails, Details } from "./pages";
 
 function App() {
   return (
@@ -14,11 +14,11 @@ function App() {
           />
           <Route
             path="/podcast/:id"
-            element={<PodcastDetails />}
+            element={<Details />}
           />
           <Route
-            path="/chapter"
-            element={<PodcastChapterDetails />}
+            path="/podcast/:id/episode/:episodeId"
+            element={<ChapterDetails />}
           />
           <Route
             path="*"
