@@ -7,7 +7,6 @@ interface Props {
 
 export default function PodcastItem({ podcast }: Props) {
   const navigate = useNavigate();
-  console.log(podcast);
   const handleNavigate = () => {
     navigate(`/podcast/${podcast.id.attributes["im:id"]}`);
   };
