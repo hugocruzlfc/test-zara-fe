@@ -1,6 +1,12 @@
 import { createContext, useState, useEffect } from "react";
 import { getPodcasts } from "../services";
-import { Podcast, PodcastContextType, PodcastType } from "../types";
+import {
+  Podcast,
+  PodcastContextType,
+  PodcastType,
+  LocalStorageKeys,
+} from "../types";
+import { useLocalStorage } from "../hooks";
 
 export const PodcastsContext = createContext<PodcastContextType | null>(null);
 
@@ -75,13 +81,23 @@ interface Props {
 export const PodcastContextProvider = ({ children }: Props) => {
   const [podcasts, setPodcasts] = useState<Podcast[]>(INITIAL_STATE);
   const [loading, setLoading] = useState(true);
+  const [podcastsStorage, setPodcastsStorage] = useLocalStorage<Podcast[]>(
+    LocalStorageKeys.PODCASTS,
+    []
+  );
 
   useEffect(() => {
     setLoading(true);
-    getPodcasts().then((response) => {
+    if (podcastsStorage.length === 0) {
+      getPodcasts().then((response) => {
+        setLoading(false);
+        setPodcasts(response.feed.entry);
+        setPodcastsStorage(response.feed.entry);
+      });
+    } else {
+      setPodcasts(podcastsStorage);
       setLoading(false);
-      setPodcasts(response.feed.entry);
-    });
+    }
   }, []);
 
   return (
